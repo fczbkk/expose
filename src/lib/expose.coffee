@@ -12,15 +12,19 @@ expose = (lib, lib_name) ->
 
 
   # Node.js
+  ###
   if module?.exports
     module.exports = lib
+  ###
 
   # AMD / RequireJS
+  ###
   else if define?.amd
     define [], -> lib
+  ###
 
   # windowed browser
-  else if typeof window is 'object'
+  if typeof window is 'object'
     noConflict window, lib, lib_name
 
   # headless browser (e.g. Phantom)
