@@ -12,16 +12,12 @@ expose = (lib, lib_name) ->
 
 
   # Node.js
-  ###
   if module?.exports
     module.exports = lib
-  ###
 
   # AMD / RequireJS
-  ###
-  else if define?.amd
+  if define?.amd
     define [], -> lib
-  ###
 
   # windowed browser
   if typeof window is 'object'
