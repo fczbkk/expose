@@ -17,7 +17,7 @@ expose = (lib, lib_name) ->
 
   # AMD / RequireJS
   if define?.amd
-    define [], -> lib
+    define lib_name, [], -> lib
 
   # windowed browser
   if typeof window is 'object'
